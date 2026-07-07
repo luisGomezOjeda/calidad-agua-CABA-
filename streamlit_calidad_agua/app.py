@@ -4,7 +4,7 @@ import plotly.io as pio
 from plotly.subplots import make_subplots
 import streamlit as st
 from cache_data import load_data
-
+from pathlib import Path
 pio.templates.default = 'plotly_dark'
 
 datasets = load_data()
@@ -503,6 +503,11 @@ fig_integrada_OXIGENO.update_layout(
     ]
 )
 
+ruta_script = Path(__file__).resolve()
+
+# 2. Armamos la ruta blindada hacia la imagen
+ruta_imagen = ruta_script.parent / 'dataSets' / 'carbon.png'
+
 
 def main():
     st.title("**Calidad del Agua (CABA)**",text_alignment='center')
@@ -696,7 +701,7 @@ Este conjunto de datos tiene mayor proporción o mayor frecuencia de muestra de 
     st.text('''
     Transforme el significado de cada registro de tal forma que el tipo de masa, lugar, coordenadas y fecha son identificadores únicos de cada registro en donde contiene las mediciones de las determinaciones de un día determinado.
         ''')
-    st.image('dataSets/carbon.png',use_container_width=True)
+    st.image(ruta_imagen,use_container_width=True)
     st.markdown('''
                 
                 
