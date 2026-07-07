@@ -1,0 +1,7 @@
+,arsénico total,coliformes fecales,dbo5,dqo,oxígeno,sólidos disueltos totales
+arsénico total,1.0,0.27,0.36,0.3,-0.4,0.62
+coliformes fecales,0.27,1.0,0.7,0.49,-0.59,0.21
+dbo5,0.36,0.7,1.0,0.62,-0.45,0.12
+dqo,0.3,0.49,0.62,1.0,-0.18,0.34
+oxígeno,-0.4,-0.59,-0.45,-0.18,1.0,-0.24
+sólidos disueltos totales,0.62,0.21,0.12,0.34,-0.24,1.0
