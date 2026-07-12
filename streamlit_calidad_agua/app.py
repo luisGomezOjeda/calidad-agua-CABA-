@@ -240,7 +240,7 @@ def main():
     st.plotly_chart(fig_corr, use_container_width=True)
     
     st.markdown("<h3 style='text-align: center;'>Análisis de Componentes Principales (PCA)</h3>", unsafe_allow_html=True)
-    st.dataframe(head_calidad_del_agua_pivot_PCA)
+    st.dataframe(head_calidad_del_agua_pivot_PCA,use_container_width=True)
     st.plotly_chart(fig_trend_INDICE_INORGANICO, use_container_width=True)
     st.plotly_chart(fig_trend_INDICE_CONTAMINACION_ORGANICA, use_container_width=True)
     st.plotly_chart(fig_trend_OXIGENO, use_container_width=True)
