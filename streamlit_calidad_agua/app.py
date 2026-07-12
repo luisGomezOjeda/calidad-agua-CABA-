@@ -171,7 +171,9 @@ ruta_imagen = ruta_script.parent / 'dataSets' / 'carbon.png'
 # FUNCIÓN PRINCIPAL DE RENDERIZADO
 # ==========================================
 def main():
-    st.title("**Calidad del Agua (CABA)**", anchor=False)
+    # Usamos HTML <h1> centrado para el título principal
+    st.markdown("<h1 style='text-align: center;'>Calidad del Agua (CABA)</h1>", unsafe_allow_html=True)
+    
     st.link_button('calidad-agua', 'https://data.buenosaires.gob.ar/dataset/calidad-agua', icon_position='left', use_container_width=True)
     st.write("calidad-agua son distintos conjuntos de datos brindados por La Agencia de Protección Ambiental de la Ciudad de Buenos Aires, en el que se realizaron distintas mediciones ambientales y contaminantes en las principales masas de agua de la ciudad:")
     
@@ -184,7 +186,8 @@ def main():
     st.dataframe(calidad_del_agua_2025_head, use_container_width=True)
     st.dataframe(cal_agua_2026_head := calidad_del_agua_2026_head, use_container_width=True)
     
-    st.subheader('**Definición de Variables**')
+    # Usamos HTML <h3> centrado para los subheaders
+    st.markdown("<h3 style='text-align: center;'>Definición de Variables</h3>", unsafe_allow_html=True)
     st.markdown("""
     * **Oxígeno:** Mide la cantidad de oxígeno gaseoso disuelto en el agua. Es el indicador más crítico para la vida acuática. Límite de Cuantificación: < 50 mg/L.
     * **Sólidos Disueltos Totales:** Suma de sustancias inorgánicas y orgánicas disueltas. Indica qué tan cargada de minerales está el agua.
@@ -194,7 +197,7 @@ def main():
     * **Coliformes Fecales:** Concentración de bacterias intestinales. Indicador universal de contaminación cloacal cruda. Límite: < 1 UFC/100 mL.
     """)
     
-    st.subheader('**Transformación De Los Datos**')
+    st.markdown("<h3 style='text-align: center;'>Transformación De Los Datos</h3>", unsafe_allow_html=True)
     st.text('''
     Para poder analizar estos datos se transformaron los conjuntos de tal forma que cada registro represente las distintas mediciones de un día en un lugar en específico. Pasos realizados:
     1. Juntar todos los conjuntos de datos en uno solo.
@@ -205,7 +208,7 @@ def main():
     6. Utilizar KNNImputer para rellenar los valores nulos.
     ''')
     
-    st.subheader('**Herramientas utilizadas**')
+    st.markdown("<h3 style='text-align: center;'>Herramientas utilizadas</h3>", unsafe_allow_html=True)
     st.link_button('Google Colab Notebook', 'https://colab.research.google.com/drive/1l9pRzfESzWKU9MgF4pPo9TD3Fr-VSrUZ?usp=sharing', use_container_width=True)
     
     st.markdown('''
@@ -217,7 +220,7 @@ def main():
       <li><strong>sklearn</strong>: Escalado estándar (StandardScaler), KNNImputer y Reducción de Dimensionalidad (PCA).</li>
     </ul>''', unsafe_allow_html=True)
     
-    st.subheader('**Análisis de variables**')
+    st.markdown("<h3 style='text-align: center;'>Análisis de variables</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_det, use_container_width=True)
     
     st.markdown('''
@@ -227,34 +230,35 @@ def main():
       <li>Las variables <strong>dqo</strong>, <strong>dbo5</strong> y <strong>arsénico total</strong> tienen en promedio un 3% de registros por debajo del límite de cuantificación.</li>
     </ul>''', unsafe_allow_html=True)
     
-    st.subheader('**Análisis De Frecuencias De Muestreos**')
+    st.markdown("<h3 style='text-align: center;'>Análisis De Frecuencias De Muestreos</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_true, use_container_width=True)
     
-    st.subheader('**Análisis de Distribución De Mediciones**')
+    st.markdown("<h3 style='text-align: center;'>Análisis de Distribución De Mediciones</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig, use_container_width=True)
     
-    st.subheader('**Análisis de Correlación Cruzada Entre Mediciones**')
+    st.markdown("<h3 style='text-align: center;'>Análisis de Correlación Cruzada Entre Mediciones</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_corr, use_container_width=True)
     
-    st.subheader('**Análisis de Componentes Principales (PCA)**')
+    st.markdown("<h3 style='text-align: center;'>Análisis de Componentes Principales (PCA)</h3>", unsafe_allow_html=True)
+    st.dataframe(head_calidad_del_agua_pivot_PCA)
     st.plotly_chart(fig_trend_INDICE_INORGANICO, use_container_width=True)
     st.plotly_chart(fig_trend_INDICE_CONTAMINACION_ORGANICA, use_container_width=True)
     st.plotly_chart(fig_trend_OXIGENO, use_container_width=True)
     
-    st.subheader('**Visualización Espacio-Temporal: Mapas de Calor**')
+    st.markdown("<h3 style='text-align: center;'>Visualización Espacio-Temporal: Mapas de Calor</h3>", unsafe_allow_html=True)
     
-    st.write("#### Índice Inorgánico")
+    # Usamos HTML <h4> centrado para los títulos menores que tenías con st.write
+    st.markdown("<h4 style='text-align: center;'>Índice Inorgánico</h4>", unsafe_allow_html=True)
     st.plotly_chart(fig_integrada_INORGANICO, use_container_width=True)
     st.markdown('''
     <p>Se observa que el <strong>Índice Inorgánico</strong> presenta una tendencia general decreciente hacia las fechas más recientes, con excepción del Lago Lugano que sostiene anomalías minerales aisladas.</p>''', unsafe_allow_html=True)
     
-    st.write("#### Índice de Contaminación Biológica")
+    st.markdown("<h4 style='text-align: center;'>Índice de Contaminación Biológica</h4>", unsafe_allow_html=True)
     st.plotly_chart(fig_integrada_CONTAMINACION_BIOLOGICA, use_container_width=True)
-    # --- ERROR 2 CORREGIDO: CONCLUSIÓN BIOLÓGICA REAL ---
     st.markdown('''
     <p>El mapa biológico expone de forma contundente la crisis orgánica de la cuenca del <strong>Riachuelo</strong> y zonas puntuales del Arroyo Medrano, manteniendo focos calientes estables a lo largo del trienio estudiado.</p>''', unsafe_allow_html=True)
     
-    st.write("#### Concentración de Oxígeno")
+    st.markdown("<h4 style='text-align: center;'>Concentración de Oxígeno</h4>", unsafe_allow_html=True)
     st.plotly_chart(fig_integrada_OXIGENO, use_container_width=True)
 
 if __name__ == "__main__":
