@@ -20,6 +20,7 @@ def load_data():
         
     for file in current_folder.glob('*.csv'):
         # 3. Tu genialidad del .strip() la mantenemos
+        print(file.stem.strip())
         datos_cargados[file.stem.strip()] = pd.read_csv(file)
         
     # 4. Retornamos la variable local

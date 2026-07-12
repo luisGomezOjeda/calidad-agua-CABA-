@@ -1,0 +1,11 @@
+DETERMINACIÓN,UNIDAD,LÍMITE DE CUANTIFICACIÓN,TIPO_DE_MASA,LUGAR,LAT,LONG,FECHA,VALOR
+Oxígeno,mg/l,≥ 0.1,Riachuelo ,Puente La Noria,34705115,5846104,2024-01-09,0.9
+Sólidos Disueltos Totales ,mg/l NaCl,≥  1,Arroyos,Ingreso Arroyo Medrano,-34558488.0,-58503429.0,2024-01-09,
+DQO  ,mg O2/l,≥  50,Arroyos,Ingreso Arroyo Medrano,-34558488.0,-58503429.0,2024-01-09,
+DBO5 ,mg O2/l,≥  5,Arroyos,Ingreso Arroyo Medrano,-34558488.0,-58503429.0,2024-01-09,
+Arsénico total,µg/l,≥ 4,Arroyos,Ingreso Arroyo Medrano,-34558488.0,-58503429.0,2024-01-09,
+Coliformes Fecales ,UFC/100 ml,≥1,Arroyos,Ingreso Arroyo Medrano,-34558488.0,-58503429.0,2024-01-09,
+Oxígeno,mg/l,≥ 0.1,Arroyos,Desembocadura Arroyo Medrano,-34537103.0,-58458516.0,2024-01-09,
+Oxígeno,mg/l,≥ 0.1,Arroyos,Ingreso Arroyo Medrano,-34558488.0,-58503429.0,2024-01-09,
+Sólidos Disueltos Totales ,mg/l NaCl,≥  1,Arroyos,Desembocadura Arroyo Medrano,-34537103.0,-58458516.0,2024-01-09,
+DBO5 ,mg O2/l,≥  5,Arroyos,Desembocadura Arroyo Medrano,-34537103.0,-58458516.0,2024-01-09,

@@ -16,9 +16,8 @@ fig_det.update_yaxes(title_text='Porcentaje')
 calidad_del_agua_2024_head = datasets['calidad_del_agua_2024_head']
 calidad_del_agua_2025_head = datasets['calidad_del_agua_2025_head']
 calidad_del_agua_2026_head = datasets['calidad_del_agua_2026_head']
-
 calidad_del_agua_melt = datasets['calidad_del_agua_melt']
-print(datasets.keys())
+head_calidad_del_agua_pivot_PCA = datasets['head_calidad_del_agua_pivot_PCA']
 
 df_true_values = datasets['cantidad_mediciones_no_nulas']
 
@@ -28,7 +27,10 @@ fig_true = px.bar(df_true_values,x='determinación',y='cantidad',color='determin
 
 df_pivot = datasets['calidad_del_agua_pivot_not_processed']
 
+print(datasets.keys())
+
 head_calidad_del_agua_pivot_processed = datasets['head_calidad_del_agua_pivot_processed']
+
 
 texto_outliers = "<b>Lugar:</b> " + df_pivot['LUGAR'] + "<br><b>Fecha:</b> " + df_pivot['FECHA'].astype(str)
 
@@ -98,6 +100,7 @@ print(datasets.keys())
 df_PCA_2024 = datasets['completed_calidad_del_agua_pivot_PCA_2024']
 df_PCA_2025 = datasets['completed_calidad_del_agua_pivot_PCA_2025']
 df_PCA_2026 = datasets['completed_calidad_del_agua_pivot_PCA_2026']
+
 
 
 fig_map_INORGANICO_2024 = px.density_mapbox(
@@ -618,7 +621,7 @@ KNNimputer es un algoritmo de aprendizaje automático que utiliza la métrica de
                 $$d(P,Q) = \sqrt{\sum_{i=1}^{n}(p_i - q_i)^2}$$
 
                 $$d(P,Q) = \sqrt{(p_1 - q_1)^2 + (p_2 - q_2)^2 + \cdots + (p_n - q_n)^2}$$
-                ''')
+                ''')  
     st.subheader('''
                  
                  
@@ -629,7 +632,7 @@ KNNimputer es un algoritmo de aprendizaje automático que utiliza la métrica de
 (un registro representa una medición, de una determinación, en un lugar en concreto)
 Lo convierto en un formato largo para separar cada tipo de determinación y poder tratar los datos mal imputados y fuera de los límites de cuantificación de cada determinación.
             ''')
-    st.dataframe(df_pivot,width='stretch')
+    st.dataframe(head_calidad_del_agua_pivot_processed,width='stretch')
     st.subheader('Límite de Cuantificación de las Determinaciones')
     st.caption('- **OXÍGENO:** <0.05mg/l y <0.1mg/l',width='stretch')
     st.caption('- **DQO:** <50',width='stretch')
@@ -747,7 +750,6 @@ También detecte una correlación entre arsénico total y sólidos disueltos tot
   realizada la imputación, los datos fueron transformados nuevamente a su escala
   original para facilitar su interpretación y permitir futuros análisis.
 </p>''',unsafe_allow_html=True)
-    st.dataframe(head_calidad_del_agua_pivot_processed)
     st.subheader('''
                  
                  
@@ -842,6 +844,10 @@ También detecte una correlación entre arsénico total y sólidos disueltos tot
       procesadoras de alimentos, jugueras o papeleras.
     </li>
   </ul>''',unsafe_allow_html=True)
+    
+    st.dataframe(head_calidad_del_agua_pivot_PCA,width='stretch')
+    
+    
     st.plotly_chart(fig_trend_INDICE_INORGANICO,use_container_width=True)
     st.plotly_chart(fig_trend_INDICE_CONTAMINACION_ORGANICA,use_container_width=True)
     st.plotly_chart(fig_trend_OXIGENO,use_container_width=True)
