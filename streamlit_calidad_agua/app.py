@@ -230,6 +230,7 @@ def main():
       <li>Las variables <strong>dqo</strong>, <strong>dbo5</strong> y <strong>arsénico total</strong> tienen en promedio un 3% de registros por debajo del límite de cuantificación.</li>
     </ul>''', unsafe_allow_html=True)
     
+    
     st.markdown("<h3 style='text-align: center;'>Análisis De Frecuencias De Muestreos</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_true, use_container_width=True)
     
